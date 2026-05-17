@@ -4,9 +4,9 @@ import java.util.Scanner;
 //TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
-    public static String errorMessage = "숫자 또는 선택지 글자만 입력해주세요.";
-    public static void main(String[] args) {
+    public static String ERROR_MESSAGE = "숫자 또는 선택지 글자만 입력해주세요.";
 
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // 1. 게임 시작
@@ -20,9 +20,8 @@ public class Main {
         // 3. 스탯 출력
         if (selected != null) {
             selected.printStat();
-
         } else {
-            System.out.println(errorMessage);
+            System.out.println(ERROR_MESSAGE);
         }
 
         scanner.close();
@@ -45,17 +44,10 @@ public class Main {
 
             if (champ.equals("1")) return new Ashe();
             if (champ.equals("2")) return new Caitlyn();
-        }else {
-            System.out.println(errorMessage);
+        } else {
+            System.out.println(ERROR_MESSAGE);
         }
 
         return null;
-    }
-
-    // 캐릭터 정보 출력 메서드
-    static void displayCharacter(Character c) {
-        System.out.println("\n=== 선택한 캐릭터 ===");
-        c.printStat(); //오버라이딩
-
     }
 }

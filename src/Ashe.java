@@ -9,6 +9,4 @@ public class Ashe extends ADC{
         name = "애쉬";
     }
 
-
-
 }

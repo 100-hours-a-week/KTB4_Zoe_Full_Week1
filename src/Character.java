@@ -17,6 +17,4 @@ public class Character {
         hp = 70;
         attackDmg = 5;
     }
-
-
 }

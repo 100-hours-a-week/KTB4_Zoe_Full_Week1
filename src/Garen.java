@@ -4,7 +4,5 @@ public class Garen extends Tanker{
         super();
         name = "가렌";
     }
-
-
 }
 
