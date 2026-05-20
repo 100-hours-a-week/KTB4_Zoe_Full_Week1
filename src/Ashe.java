@@ -5,8 +5,7 @@ public class Ashe extends ADC{
     }
 
     public Ashe() {
-        super();
-        name = "애쉬";
+        super("애쉬", 90, 12);
     }
 
 }

@@ -1,8 +1,7 @@
 public class Garen extends Tanker{
 
     public Garen() {
-        super();
-        name = "가렌";
+        super("가렌", 150, 6);
     }
 }
 

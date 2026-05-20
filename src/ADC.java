@@ -16,9 +16,8 @@ public abstract class ADC extends Character {
         System.out.println("치명타 데미지:" + criticalAttack);
     }
 
-    public ADC() {
-        super();
-        attackDmg = attackDmg + 3;
+    public ADC(String name, int hp, int attackDmg) {
+        super(name, hp, attackDmg);
         criticalAttack = 12;
     }
 

@@ -11,9 +11,8 @@ public abstract class Tanker extends Character{
         System.out.println("쉴드:" + shield);
     }
 
-    public Tanker() {
-        super(); // 부모생성자호출
-        hp = hp + 60; //탱커는 기본 스탯보다 체력이 높음
+    public Tanker(String name, int hp, int attackDmg) {
+        super(name,hp,attackDmg); // 부모생성자호출
         shield = 30;
     }
 }

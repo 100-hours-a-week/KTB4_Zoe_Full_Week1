@@ -5,7 +5,6 @@ public class Malphite extends Tanker{
     }
 
     public Malphite() {
-        super();
-        name = "말파이트";
+        super("말파이트",130,8);
     }
 }

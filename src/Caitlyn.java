@@ -1,7 +1,6 @@
 public class Caitlyn extends ADC {
     public Caitlyn() {
-        super();
-        name = "케이틀린";
+        super("애쉬", 95, 10);
     }
 
 }

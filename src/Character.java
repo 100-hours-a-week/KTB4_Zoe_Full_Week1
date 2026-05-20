@@ -14,9 +14,6 @@ public abstract class Character {
         System.out.println("평타 데미지:" + attackDmg);
     }
 
-    public Character() {
-        hp = 70;
-        attackDmg = 5;
     //getter, setter 함수들
     public void setAttackDmg(int attackDmg) {
         this.attackDmg = attackDmg;
@@ -44,5 +41,9 @@ public abstract class Character {
 
 
 
+    public Character(String name, int hp, int attackDmg) {
+        this.name = name;
+        this.hp = hp;
+        this.attackDmg = attackDmg;
     }
 }
