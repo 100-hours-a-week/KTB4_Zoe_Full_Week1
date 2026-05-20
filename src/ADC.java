@@ -1,9 +1,14 @@
-public class ADC extends Character {
-    protected int criticalAttack;
+public abstract class ADC extends Character {
+    private int criticalAttack;
 
     public void kite() {
         System.out.println("카이팅하기!");
     };
+
+    public int getCriticalAttack() {
+        return criticalAttack;
+    }
+
 
     @Override
     public void printStat() {

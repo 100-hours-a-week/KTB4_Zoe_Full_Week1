@@ -1,5 +1,5 @@
-public class Tanker extends Character{
-    protected int shield;
+public abstract class Tanker extends Character{
+    private int shield;
 
     public void stun() {
         System.out.println("스턴 스킬 사용!");
