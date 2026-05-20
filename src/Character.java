@@ -3,6 +3,7 @@ public abstract class Character {
     private int hp;
     private int attackDmg;
 
+    public abstract void useUltimate();
 
     public void attack() {
         System.out.print("평타 공격! :" +attackDmg + "의 데미지");
