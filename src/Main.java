@@ -1,18 +1,28 @@
+import battle.Battle;
+import constant.Line;
+import domain.character.Character;
+import view.InputView;
+import view.OutputView;
+
+
 public class Main {
+
     public static void main(String[] args) {
         InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
 
         try {
+            // 1. 캐릭터 선택 (1주차 기능)
             Line line = Line.from(inputView.askLine());
-
-            // 선택한 라인의 캐릭터 목록을 보여주고
             inputView.showChampions(line.getChampions());
-            String championInput = inputView.askChampion();
+            Character selected = line.createCharacter(inputView.askChampion());
 
-            // 그 라인 안에서 캐릭터 생성
-            Character selected = line.createCharacter(championInput);
-
+            System.out.println("\n선택한 캐릭터:");
             selected.printStat();
+
+            // 2. 전투 시작 (2주차 비동기 기능)
+            Battle battle = new Battle(selected, inputView, outputView);
+            battle.start();
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
