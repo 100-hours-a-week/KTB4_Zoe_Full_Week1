@@ -1,5 +1,9 @@
 package domain.character;
 
+import domain.monster.Monster;
+
+import java.util.List;
+
 public abstract class ADC extends Character {
 
     private final int criticalAttack;   // 치명타 데미지: 불변 → final
@@ -10,10 +14,9 @@ public abstract class ADC extends Character {
     }
 
     @Override
-    public boolean useSkill() {
+    public void useSkill(List<Monster> monsters) {
         activateDodge();
         System.out.printf("%s 카이팅! 다음 반격 회피 태세%n", getName());
-        return false;
     }
 
     public int getCriticalAttack() {

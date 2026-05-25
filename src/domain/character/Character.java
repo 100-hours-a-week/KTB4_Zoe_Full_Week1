@@ -30,7 +30,7 @@ public abstract class Character {
 
     public abstract void useUltimate(List<Monster> monsters);
 
-    public abstract boolean useSkill();
+    public abstract void useSkill(List<Monster> monsters);
 
     public void attack() {
         System.out.printf("%s의 평타 공격! %d 데미지%n", name, attackDmg);

@@ -8,8 +8,8 @@ public class Monster implements Runnable {
     private final int attackDmg;     // 몹의 공격력: 고정 → final
     private final domain.character.Character target;   // 플레이어
 
-    private int hp;                   // 몹의 체력: 변함 → final 아님
-    private boolean stunned;          // 기절 상태: 스턴 시 , 그 턴 반격 못 함
+    private int hp;
+    private boolean dodging;
 
 
     public Monster(String name, int hp, int attackDmg, Character target) {
@@ -21,22 +21,24 @@ public class Monster implements Runnable {
 
     @Override
     public void run() {
-        if (isDead()) {
-            return;   // 죽은 몹은 반격하지 않음
+        if (isDead() || isDodging()) {
+            return;
         }
         target.decreaseHp(attackDmg);
         System.out.printf("  → %s(이)가 %s에게 %d 데미지로 반격!%n",
                 name, target.getName(), attackDmg);
     }
 
-    // 기절 상태로 만든다.
-    public void stun() {
-        this.stunned = true;
+    public void activateDodge() {
+        this.dodging = true;
     }
 
-    // 턴 종료 시 기절 해제
-    public void wakeUp() {
-        this.stunned = false;
+    public void endTurn() {
+        this.dodging = false;
+    }
+
+    public boolean isDodging() {
+        return dodging;
     }
 
     public void decreaseHp(int damage) {

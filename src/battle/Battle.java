@@ -57,10 +57,7 @@ public class Battle {
                 player.chargeGauge();
                 return true;
             case 2:
-                boolean isStun = player.useSkill();
-                if (isStun) {
-                    stunAllMonsters();
-                }
+                player.useSkill(monsters);
                 return true;
             case 3:
                 player.useUltimate(monsters);
@@ -77,14 +74,6 @@ public class Battle {
         outputView.printPlayerAttack(player.getName(), target.getName(), player.getAttackDmg());
         if (target.isDead()) {
             outputView.printMonsterDefeated(target.getName());
-        }
-    }
-
-    private void stunAllMonsters() {
-        for (Monster m : monsters) {
-            if (!m.isDead()) {
-                m.stun();
-            }
         }
     }
 
@@ -115,7 +104,7 @@ public class Battle {
         }
         player.endTurn();
         for (Monster m : monsters) {
-            m.wakeUp();
+            m.endTurn();
         }
     }
 

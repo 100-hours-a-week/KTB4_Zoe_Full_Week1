@@ -1,5 +1,9 @@
 package domain.character;
 
+import domain.monster.Monster;
+
+import java.util.List;
+
 public abstract class Tanker extends Character {
 
     private final int shield;   // 쉴드: 탱커 고유 스탯
@@ -11,10 +15,13 @@ public abstract class Tanker extends Character {
 
 
     @Override
-    public boolean useSkill() {
-        activateDodge();
+    public void useSkill(List<Monster> monsters) {
         System.out.printf("%s 스턴 스킬 사용! 적을 잠시 기절시킨다%n", getName());
-        return false;
+        for (Monster m : monsters) {
+            if (!m.isDead()) {
+                m.activateDodge();
+            }
+        }
     }
 
     public int getShield() {
